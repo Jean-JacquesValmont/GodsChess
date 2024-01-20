@@ -52,6 +52,7 @@ func _process(delta):
 				enPassantFinish()
 				verificationCheckAndCheckmate()
 				verificationStalemate("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
+				deadTimerPowerActived()
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
@@ -62,6 +63,7 @@ func _process(delta):
 				enPassantFinish()
 				verificationCheckAndCheckmate()
 				verificationStalemate("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
+				deadTimerPowerActived()
 				updateOfThePartsAttack = false
 
 func createBoard(rowSize,columnSize):
@@ -1395,3 +1397,38 @@ func verificationCheckAndCheckmate():
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)
+
+####################################################################################################
+#Power of Gods
+
+func deadTimerPowerActived():
+	if get_node("/root/Game/ChessBoard/PawnBlack") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack2") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack2").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack3") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack3").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack4") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack4").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack5") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack5").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack6") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack6").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack7") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack7").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/PawnBlack8") != null:
+		get_node("/root/Game/ChessBoard/PawnBlack8").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/KnightBlack") != null:
+		get_node("/root/Game/ChessBoard/KnightBlack").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/KnightBlack2") != null:
+		get_node("/root/Game/ChessBoard/KnightBlack2").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/BishopBlack") != null:
+		get_node("/root/Game/ChessBoard/BishopBlack").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/BishopBlack2") != null:
+		get_node("/root/Game/ChessBoard/BishopBlack2").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/RookBlack") != null:
+		get_node("/root/Game/ChessBoard/RookBlack").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/RookBlack2") != null:
+		get_node("/root/Game/ChessBoard/RookBlack2").deadPowerTimer()
+	if get_node("/root/Game/ChessBoard/QueenBlack") != null:
+		get_node("/root/Game/ChessBoard/QueenBlack").deadPowerTimer()

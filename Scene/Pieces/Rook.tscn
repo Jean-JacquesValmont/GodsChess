@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b56omyn065n1s"]
+[gd_scene load_steps=6 format=3 uid="uid://b56omyn065n1s"]
 
 [ext_resource type="Texture2D" uid="uid://db3p0e8yktgvr" path="res://Image/Pieces/White/rook_white.png" id="1_pvii7"]
 [ext_resource type="Script" path="res://Script/Pieces/Rook.gd" id="2_tpdmh"]
 [ext_resource type="AudioStream" uid="uid://bn3idy02b2e67" path="res://Sound/Sound_piece_move.mp3" id="2_uaj3b"]
+[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="4_yt1eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stkdb"]
 size = Vector2(50, 50)
@@ -19,5 +20,17 @@ shape = SubResource("RectangleShape2D_stkdb")
 
 [node name="SoundMovePiece" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_uaj3b")
+
+[node name="Timer" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+offset_left = 35.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("4_yt1eq")
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

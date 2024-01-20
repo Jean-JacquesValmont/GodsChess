@@ -27,6 +27,7 @@ var attackerPositionshiftJ = 0
 var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
+var timer = -1
 
 func _ready():
 	await get_tree().process_frame
@@ -46,8 +47,8 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-func _process(delta):
-	request_ready()
+#func _process(delta):
+#	pass
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -219,9 +220,13 @@ func _on_area_2d_area_entered(area):
 		var pieceName = area.get_parent().get_name()
 		if promoteInProgress == false:
 			if white == true and GlobalValueChessGame.turnWhite == false:
+				if GlobalValueMenu.godSelectPlayer2 == "GodOfDeath":
+#					deadPower()
+					pass
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
+				enablePowerOfDeath(pieceName)
 				if "White" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 				
@@ -588,3 +593,27 @@ func reverseCoordonate(i):
 		9:
 			i = 2
 	return i
+
+################################################################################
+#Power of Gods
+
+func enablePowerOfDeath(pieceName):
+	if GlobalValueMenu.godSelectPlayer1 == "GodOfDeath":
+		if "PawnWhite" in pieceName:
+			PowersOfGods.deathPowerPawn(playerID, chessBoard)
+		elif "KnightWhite" in pieceName:
+			PowersOfGods.deathPower(playerID,7)
+		elif "BishopWhite" in pieceName:
+			PowersOfGods.deathPower(playerID,9)
+		elif "RookWhite" in pieceName:
+			PowersOfGods.deathPower(playerID,11)
+		elif "QueenWhite" in pieceName:
+			PowersOfGods.deathPower(playerID,13)
+
+func deadPowerTimer():
+	if get_node("Timer").visible == true and GlobalValueChessGame.turnWhite == true :
+		timer -= 1
+		get_node("Timer").text = str(timer)
+	if timer == 0:
+		chessBoard[i][j] = "0"
+		self.queue_free()

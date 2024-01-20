@@ -23,6 +23,7 @@ var textureWhite = preload("res://Image/Pieces/White/king_white.png")
 var textureBlack = preload("res://Image/Pieces/Black/king_black.png")
 var promoteInProgress = false
 var playerID
+var timer = -1
 
 func _ready():
 	await get_tree().process_frame
@@ -409,3 +410,6 @@ func reverseCoordonate(i):
 		9:
 			i = 2
 	return i
+
+################################################################################
+#Power of Gods

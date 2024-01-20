@@ -1,3 +1,4 @@
+res://Script/Game
 C:/Ada_tech_school/Projet_Godot/Godot_4.1/GodsChess
 res://Image/Gods/GoddessOfTeleportation/Gif/Rook
 res://Image/Gods/GoddessOfTeleportation/Gif/Queen
@@ -6,7 +7,6 @@ res://Image/Gods/GoddessOfTeleportation/Gif/Passif
 res://Image/Gods/GoddessOfTeleportation/Gif/Knight
 res://Image/Gods/GoddessOfTeleportation/Gif/King
 res://Image/Gods/GoddessOfTeleportation/Gif/Bishop
-res://Script/Game
 res://Scene/Game
 res://Script/Pieces
 res://Scene/Pieces
@@ -20,4 +20,3 @@ res://Image/Gods/GodOfDeath/Gif/Passif
 res://Script/Menu
 res://Image
 res://Scene/Menu
-res://Image/Animation/Menu/ButtonLeft
